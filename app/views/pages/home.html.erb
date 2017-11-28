@@ -1,28 +1,18 @@
-
 <div class="banner" style="background-image: url( <%= image_path 'easy_way.jpg' %>);">
-  <div class="banner-content">
+  <div class="form search-bar">
     <h1>Alibi</h1>
-    <p>An easy way out</p>
-    <a class= " btn btn-light btn-lg">Start now</a>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <div class="form"></div>
-        <%= simple_form_for @alibi, method: :get do |f| %>
-          <div class="form-group">
-          <%= f.label :category %>
-          <%=select_tag 'category', options_for_select(@alibis.collect{|alibi| alibi.category}.uniq) %>
-          </div>
-          <div class="form-group">
-          <%= f.label :location %>
-          <%=select_tag 'location', options_for_select(@alibis.collect{|alibi| alibi.location}.uniq) %>
-          </div>
-          <%= submit_tag 'search'%>
-        <% end %>
+    <p>Your easy way out</p>
+    <%= simple_form_for @alibi, method: :get do |f| %>
+      <div class="form-group">
+      <%= f.label :category %>
+      <%= select_tag 'category', options_for_select(@alibis.collect{|alibi| alibi.category}.uniq), :include_blank => 'All' %>
       </div>
-    </div>
+      <div class="form-group">
+      <%= f.label :location%>
+      <%= select_tag 'location', options_for_select(@alibis.collect{|alibi| alibi.location}.uniq), :include_blank => 'All'  %>
+      </div>
+      <%= submit_tag 'Search', class:'btn btn-dark'%>
+    <% end %>
   </div>
 
   <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit iure excepturi officiis sed culpa numquam adipisci blanditiis tempora fugit, eaque, voluptates maiores optio. Dolor autem, dolore earum voluptas inventore ut.</div>
