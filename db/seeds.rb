@@ -5,3 +5,54 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
+puts "cleaning seeds..."
+Alibi.destroy_all
+tess = User.create(email: "tess@mail.com", password: '123456')
+xavier = User.create(email: "xavier@mail.com", password: '123456')
+yann = User.create(email: "yann@mail.com", password: '123456')
+roni = User.create(email: "roni@mail.com", password: '123456')
+
+puts "creating seeds..."
+alibi_attributes = [
+{ title: "Fake friend to hide your love affair",
+  description: "abcd",
+  price: "100€/hour",
+  location: "Paris",
+  category: "Relationships",
+  user: User.all.sample
+},
+{ title: "Fake person to do Le Wagon's flashcards",
+  description: "abcd",
+  price: "200€/flashcard",
+  location: "Paris/Bodeaux/Marseille",
+  category: "Education",
+  user: User.all.sample
+},
+{ title: "Fake doctor to prevent you from going to an exam",
+  description: "abcd",
+  price: "150€/hour",
+  location: "Paris",
+  category: "Education",
+  user: User.all.sample
+},
+{ title: "Fake companion to present to your parents",
+  description: "abcd",
+  price: "300€/hour",
+  location: "Paris/Marseille",
+  category: "Family",
+  user: User.all.sample
+},
+{ title: "Fake grandma faking their death to get you out work",
+  description: "abcd",
+  price: "240€/hour",
+  location: "Marseille",
+  category: "Work",
+  user: User.all.sample
+}
+]
+alibi_attributes.each do |alibi|
+  Alibi.create(alibi)
+end
+puts "done"

@@ -16,6 +16,7 @@ class AlibisController < ApplicationController
 
   def create
     @alibi = Alibi.new(alibi_params)
+    @alibi.user = current_user
     authorize @alibi
     if @alibi.save
       redirect_to alibi_path(@alibi)

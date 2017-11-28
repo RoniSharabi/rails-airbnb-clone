@@ -1,0 +1,14 @@
+<p id="notice"></p>
+  <div class="container">
+
+
+    <h2><%= @alibi.title %></h2>
+    <p><%= @alibi.description %></p>
+    <p><%= @alibi.location %></p>
+
+    <p><strong>Category: </strong><%= @alibi.category %></p>
+    <p><strong>Price: </strong><%= @alibi.price %>€</p>
+    <div class="alibis">
+      <%= link_to 'Alibis list', alibis_path %>
+    </div>
+  </div>
