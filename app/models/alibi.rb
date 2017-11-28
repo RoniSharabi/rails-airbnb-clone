@@ -7,5 +7,5 @@ class Alibi < ApplicationRecord
   validates :location, presence: true
   validates :category, inclusion: {in: ["Relationship", "Education", "Family", "Work"]}
   validates :user_id, presence: true
-  # mount_uploader :photo, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 end
