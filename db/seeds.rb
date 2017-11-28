@@ -16,7 +16,6 @@ roni = User.create(email: "roni@mail.com", password: '123456')
 
 puts "creating seeds..."
 alibi_attributes = [
-
 { title: "Fake friend to hide your love affair",
   description: "Cheating on your wife for months and she's finally about to find out? HAVE NO FEAR, your alibi JULIEN is coming to save you. Julien, your childhood friend that you haven't seen in ages. 'Yes, hunny, it's Julien who's taking up all my time. Don't be paranoid, no I don't have a lover. If you're nice, I'll introduce him to you. BOOK JULIEN TODAY.",
   price: 100,
@@ -52,6 +51,7 @@ alibi_attributes = [
   category: "Work",
   user: User.all.sample
 }
+
 ]
 
 images_url = [
@@ -68,4 +68,4 @@ alibi_attributes.each_with_index do |alibi, index|
   alibi.save
 end
 
-puts "done"
+puts "Done"
