@@ -12,6 +12,7 @@ class AlibisController < ApplicationController
 
   def new
     @alibi = Alibi.new
+    authorize @alibi
   end
 
   def create
@@ -43,6 +44,6 @@ class AlibisController < ApplicationController
   end
 
   def alibi_params
-    params.require(:alibi).permit(:title, :description, :price, :location, :category, :user_id)
+    params.require(:alibi).permit(:title, :description, :price, :location, :category, :user_id, :photo)
   end
 end
