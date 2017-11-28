@@ -1,4 +1,15 @@
-<div class="banner">
-    <h1>Alibi</h1>
-    <p>Your easy way out</p>
+<div class="container">
+  <div class="row">
+  <% @alibis.each do |alibi| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card text-center" style= "background-image: url('<%= image_path "inconnu.png" %>')">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+        <%= link_to alibi.title, alibi_path(alibi) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

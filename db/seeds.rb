@@ -9,44 +9,49 @@ require 'open-uri'
 
 puts "cleaning seeds..."
 Alibi.destroy_all
-Tess = User.create
-Xavier = User.create
-Yann = User.create
-Roni = User.create
 
 puts "creating seeds..."
 alibi_attributes = [
 { title: "Fake friend to hide your love affair",
   price: "100€/hour",
+  description: "abcd",
   location: "Paris",
   category: "Relationships",
-  user: Roni
+  user_id: User.first.id
 },
 { title: "Fake person to do Le Wagon's flashcards",
   price: "200€/flashcard",
+  description: "abcd",
   location: "Paris/Bodeaux/Marseille",
   category: "Education",
-  user: Yann
+  user_id: User.first.id
 },
 { title: "Fake doctor to prevent you from going to an exam",
   price: "150€/hour",
+  description: "abcd",
   location: "Paris",
   category: "Education",
-  user: Xavier
+  user_id: User.first.id
 },
 { title: "Fake companion to present to your parents",
   price: "300€/hour",
+  description: "abcd",
   location: "Paris/Marseille",
   category: "Family",
-  user: Tess
+  user_id: User.first.id
 },
 { title: "Fake grandma faking their death to get you out work",
   price: "240€/hour",
+  description: "abcd",
   location: "Marseille",
   category: "Work",
-  user: Xavier
+  user_id: User.first.id
 }
 ]
-Alibi.create(alibi_attributes)
+
+alibi_attributes.each do |alibi|
+  Alibi.create(alibi)
+end
+
 
 puts "done"
