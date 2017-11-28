@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-fixed-top <%= 'navbar-wagon-transparent navbar-home' if params[:controller] =~ /pages/ && params[:action] =~ /home/ %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
