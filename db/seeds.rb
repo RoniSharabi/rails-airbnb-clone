@@ -9,13 +9,11 @@ require 'open-uri'
 
 puts "cleaning seeds..."
 Alibi.destroy_all
-<<<<<<< HEAD
-=======
+
 tess = User.create(email: "tess@mail.com", password: '123456')
 xavier = User.create(email: "xavier@mail.com", password: '123456')
 yann = User.create(email: "yann@mail.com", password: '123456')
 roni = User.create(email: "roni@mail.com", password: '123456')
->>>>>>> 83d9eff8c8ebc09061ba4ba7811aaa240f59406c
 
 puts "creating seeds..."
 alibi_attributes = [
