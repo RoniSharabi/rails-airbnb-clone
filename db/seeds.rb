@@ -9,6 +9,7 @@ require 'open-uri'
 
 puts "cleaning seeds..."
 Alibi.destroy_all
+
 tess = User.create(email: "tess@mail.com", password: '123456')
 xavier = User.create(email: "xavier@mail.com", password: '123456')
 yann = User.create(email: "yann@mail.com", password: '123456')
@@ -19,6 +20,7 @@ alibi_attributes = [
 { title: "Fake friend to hide your love affair",
   description: "Cheating on your wife for months and she's finally about to find out? HAVE NO FEAR, your alibi JULIEN is coming to save you. Julien, your childhood friend that you haven't seen in ages. 'Yes, hunny, it's Julien who's taking up all my time. Don't be paranoid, no I don't have a lover. If you're nice, I'll introduce him to you. BOOK JULIEN TODAY.",
   price: "100€/hour",
+  description: "abcd",
   location: "Paris",
   category: "Relationships",
   user: User.all.sample
@@ -33,6 +35,7 @@ alibi_attributes = [
 { title: "Fake doctor to prevent you from going to an exam",
   description: "Having to pass your final exam but you spent the night with the pretty girl from the bar instead of revising (a bar the day before your exam ??) ? FEAR NOT! Dr. Saunier is here to warn your school that you have a terminal disease and that you only have a few hours left to live - too bad you can't take that exam. BOOK DR.SAUNIER TODAY.",
   price: "150€/hour",
+  description: "abcd",
   location: "Paris",
   category: "Education",
   user: User.all.sample
@@ -40,6 +43,7 @@ alibi_attributes = [
 { title: "Fake companion to present to your parents",
   description: "Your boyfriend is a hispter vegan tatooed bald KKK supporter and you're not sure that your parents will like him? FEAR NOT! KEVIN is here! Kevin is tall, nice, polite, and a teacher! What else could could you parents want? BOOK KEVIN TODAY.",
   price: "300€/hour",
+  description: "abcd",
   location: "Paris/Marseille",
   category: "Family",
   user: User.all.sample
@@ -47,6 +51,7 @@ alibi_attributes = [
 { title: "Fake grandma faking their death to get you out work",
   description: "You're overload with work and you really don't want to go to that meeting tomorrow? FEAR NOT, your grandma TATIANA will come to work to visit you and OH NO SHE JUST HAD A HEART ATTACK ON THE FLOOR. I guess the meeting will have to wait. BOOK TATIANA TODAY.",
   price: "240€/hour",
+  description: "abcd",
   location: "Marseille",
   category: "Work",
   user: User.all.sample

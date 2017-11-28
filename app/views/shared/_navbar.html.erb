@@ -1,24 +1,23 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png" %>
-  </a>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link"><i class="fa fa-home" aria-hidden="true"></i>
-</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">sign in</a>
+<%= link_to 'sign in', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/RoniSharabi" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">My deals</a></li>
-          <li><a href="#">Create an alibi offer</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><%= link_to 'My deals', alibis_path %></li>
+          <li><%= link_to "Create an alibi offer", new_alibi_path %></li>
+          <li><%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %></li>
         </ul>
       </div>
     </div>
