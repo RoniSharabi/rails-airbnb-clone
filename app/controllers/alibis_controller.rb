@@ -4,7 +4,7 @@ class AlibisController < ApplicationController
   before_action :set_alibi, only: [:show, :edit, :update, :destroy]
 
   def index
-    @alibis = policy_scope(Alibi)
+    @alibis = policy_scope(Alibi).where(location: params[:location]).where(category: params[:category])
   end
 
   def show
