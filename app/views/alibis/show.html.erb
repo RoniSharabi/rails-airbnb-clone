@@ -1,14 +1,28 @@
 <p id="notice"></p>
   <div class="container">
 
+     <%= cl_image_tag @alibi.photo, height: 400, width: 400 %>
+
 
     <h2><%= @alibi.title %></h2>
     <p><%= @alibi.description %></p>
-    <p><%= @alibi.location %></p>
+    <p><strong>City: </strong><%= @alibi.location %></p>
+
+
 
     <p><strong>Category: </strong><%= @alibi.category %></p>
     <p><strong>Price: </strong><%= @alibi.price %>€</p>
     <div class="alibis">
-      <%= link_to 'Alibis list', alibis_path %>
+
     </div>
   </div>
+
+
+<%= simple_form_for [@alibi, @deal] do |d| %>
+
+  <%= d.input :start_date %>
+  <%= d.input :end_date %>
+  <%= d.submit "Submit" %>
+<% end %>
+
+<%= link_to 'Alibis list', alibis_path %>
