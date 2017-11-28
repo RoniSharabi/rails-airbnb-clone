@@ -12,6 +12,7 @@ class AlibisController < ApplicationController
 
   def new
     @alibi = Alibi.new
+    authorize @alibi
   end
 
   def create
