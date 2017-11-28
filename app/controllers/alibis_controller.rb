@@ -8,6 +8,8 @@ class AlibisController < ApplicationController
   end
 
   def show
+     @alibi = Alibi.find(params[:id])
+     @deal = Deal.new
   end
 
   def new
