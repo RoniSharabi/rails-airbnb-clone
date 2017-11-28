@@ -1,10 +1,10 @@
 class AlibisController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  # skip_before_action :authenticate_user!, only: [:index]
 
   before_action :set_alibi, only: [:show, :edit, :update, :destroy]
 
   def index
-    @alibis = Alibi.all
+    @alibis = policy_scope(Alibi)
   end
 
   def show
@@ -16,6 +16,7 @@ class AlibisController < ApplicationController
 
   def create
     @alibi = Alibi.new(alibi_params)
+    authorize @alibi
     if @alibi.save
       redirect_to alibi_path(@alibi)
     else
@@ -37,6 +38,7 @@ class AlibisController < ApplicationController
 
   def set_alibi
     @alibi = Alibi.find(params[:id])
+    authorize @alibi
   end
 
   def alibi_params
