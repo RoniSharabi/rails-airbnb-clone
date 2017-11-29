@@ -1,6 +1,6 @@
 class Alibi < ApplicationRecord
   belongs_to :user
-  has_many :deals
+  has_many :deals, dependent: :destroy
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true

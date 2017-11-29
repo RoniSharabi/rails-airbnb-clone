@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+  <% @deals.each do |deal | %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card text-center" style= "background-image: url('<%= image_path "inconnu.png" %>')">
+        <div class="card-header">
+          <%= deal.alibi.title %>
+        </div>
+        <div class="card-body">
+        <!--  Add category and location to the query parameters to manage the Back in the Show view -->
+        <%#= link_to alibi.title, alibi_path(alibi, :category => @category, :location => @location), :class => "card-link" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
