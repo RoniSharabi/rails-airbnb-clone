@@ -26,6 +26,7 @@ class DealsController < ApplicationController
 
   def set_deal
     @deal = Deal.find(params[:id])
+    authorize @deal
   end
 
   def deal_params
