@@ -2,13 +2,13 @@
   <div class="row">
   <% @alibis.each do |alibi| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card text-center" style= "background-image: url('<%= image_path "inconnu.png" %>')">
-        <div class="card-header">
-        </div>
-        <div class="card-body">
-        <!--  Add category and location to the query parameters to manage the Back in the Show view -->
+      <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path alibi.photo %>')">
+        <div class="card-category"> <%= alibi.category %></div>
+          <div class="card-description">
+            <h2> <%= alibi.title %></h2>
+            <p> <%= alibi.location   %></p>
+          </div>
         <%= link_to alibi.title, alibi_path(alibi, :category => @category, :location => @location), :class => "card-link" %>
-        </div>
       </div>
     </div>
     <% end %>
