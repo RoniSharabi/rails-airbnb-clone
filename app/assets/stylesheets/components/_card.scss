@@ -1,5 +1,5 @@
 .card {
-  height: 175px;
+  height: 225px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -47,4 +47,8 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.card-bordus {
+  box-shadow: 2px 2px 2px 1px rgba(242, 179, 96, .5);
 }
