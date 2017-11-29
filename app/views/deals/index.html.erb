@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <% @deals.each do | deal | %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path deal.alibi.photo %>')">
+          <div class="card-category">
+            <%= deal.alibi.category %>
+          </div>
+          <div class="card-description">
+            <h2> <%= deal.alibi.title %></h2>
+            <p> <%= deal.alibi.location %></p>
+          </div>
+          <div class="card-action">
+            <%= link_to deal_path(deal), method: :delete,
+                      data: { confirm: "Are you sure?" } do  %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,10 +1,12 @@
 .card {
-  height: 175px;
+  height: 225px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
+  margin-top: 10px;
+  border-radius:5px;
 }
 .card-user {
   position: absolute;
@@ -13,6 +15,18 @@
   width: 40px;
   border-radius: 50%;
 }
+.card-action {
+  position: absolute;
+  right: 1px;
+  bottom: 5px;
+  width: 40px;
+  color: white;
+}
+
+.card-action a i {
+  color: white;
+}
+
 .card-category {
   position: absolute;
   top: 10px;
@@ -45,4 +59,8 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.card-bordus {
+  box-shadow: 2px 2px 2px 1px rgba(242, 179, 96, .5);
 }

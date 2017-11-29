@@ -8,6 +8,7 @@
 
 puts "cleaning seeds..."
 Alibi.destroy_all
+User.destroy_all
 
 tess = User.create(email: "tess@mail.com", password: '123456')
 xavier = User.create(email: "xavier@mail.com", password: '123456')
