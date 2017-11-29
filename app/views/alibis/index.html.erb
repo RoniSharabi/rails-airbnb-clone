@@ -3,11 +3,11 @@
   <% @alibis.each do |alibi| %>
     <div class="col-xs-12 col-sm-4">
       <div class=card-bordus>
-        <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path alibi.photo %>')">
+        <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path alibi.photo, height: 300, width: 500, crop: :fit %>')">
           <div class="card-category"> <%= alibi.category %></div>
             <div class="card-description">
             </div>
-          <%= link_to alibi.title, alibi_path(alibi, :category => @category, :location => @location), :class => "card-link" %>
+          <%= link_to "", alibi_path(alibi, :category => @category, :location => @location), :class => "card-link" %>
         </div>
         <div class="card-des">
           <h4><%= alibi.title %></h4>

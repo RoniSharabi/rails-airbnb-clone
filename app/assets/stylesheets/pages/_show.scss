@@ -2,12 +2,18 @@
   // margin-top: 690px;
   color: #393E46;
   border: 2px;
-
+  margin-bottom: 40px;
 }
 
 .brice{
-  margin-left: 300px;
-  margin-top: 50px;
+  // margin-left: 300px;
+  // margin-top: 50px;
+}
+.ty {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .tt{
   border-color: orange;
@@ -15,9 +21,7 @@
   border-style: solid;
   padding: 30px;
   border-radius: 4px;
-
 }
-
 
 .titles {
   text-align: center;
@@ -27,13 +31,12 @@
   border-radius: 4px;
   padding-top: 30px;
   padding-bottom: 10px;
-
 }
 
 
  p {
   padding-bottom: 20px;
- font-family: 'Dosis', sans-serif;
+  font-family: 'Dosis', sans-serif;
 
 }
 
@@ -43,5 +46,6 @@ h2 {
 }
 
 .hey {
-
+ text-align:center;
+ margin: 50px;
 }
