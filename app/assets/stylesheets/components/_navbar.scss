@@ -1,15 +1,17 @@
 /* Main navbar */
 .navbar-wagon {
   background-color: white;
+  color: gray;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  &.navbar-wagon-transparent {
-    background-color: transparent;
-  }
+}
+
+.navbar-wagon-transparent {
+  background-color: transparent;
 }
 
 /* Logo */
@@ -39,11 +41,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: white;
+  color:  #F2AF58;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: white;
   text-decoration: none;
 }
 
