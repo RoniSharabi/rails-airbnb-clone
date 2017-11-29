@@ -15,6 +15,18 @@
   width: 40px;
   border-radius: 50%;
 }
+.card-action {
+  position: absolute;
+  right: 1px;
+  bottom: 5px;
+  width: 40px;
+  color: white;
+}
+
+.card-action a i {
+  color: white;
+}
+
 .card-category {
   position: absolute;
   top: 10px;
