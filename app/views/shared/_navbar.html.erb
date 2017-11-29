@@ -7,17 +7,29 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-<%= link_to 'Sign in', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-<%= link_to 'My deals', deals_path, class: "navbar-wagon-item navbar-wagon-link" %>
-<%= link_to 'Create alibi', new_alibi_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to 'Sign in', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" if !user_signed_in?%>
+    <%= link_to 'My deals', deals_path, class: "navbar-wagon-item navbar-wagon-link" if !current_user.deals.empty?%>
+    <%= link_to 'Create alibi', new_alibi_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/RoniSharabi" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %></li>
-        </ul>
+        <% user = "RoniSharabi" %>
+        <% if user_signed_in? %>
+          <% if current_user.email.start_with?('xavier') %>
+            <% user = "xarques" %>
+          <% elsif current_user.email.start_with?('roni') %>
+            <% user = "RoniSharabi" %>
+          <% elsif current_user.email.start_with?('tess') %>
+            <% user = "tesssaf" %>
+          <% elsif current_user.email.start_with?('yann') %>
+            <% user = "IanPurdom" %>
+          <% end %>
+          <img src="https://kitt.lewagon.com/placeholder/users/<%= user %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><%= link_to 'Sign out', destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>
