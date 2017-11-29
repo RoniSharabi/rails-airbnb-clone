@@ -4,19 +4,24 @@ class AlibisController < ApplicationController
   before_action :set_alibi, only: [:show, :edit, :update, :destroy]
 
   def index
-
-     @alibis = policy_scope(Alibi)
-    if params[:location] != ""
+    @alibis = policy_scope(Alibi)
+    # Pass query parameters to the index view in order to retrieve those parameters in the show view
+    @location = params[:location]
+    @category = params[:category]
+    if @location != ""
       @alibis = @alibis.where(location: params[:location])
     end
-    if params[:category] != ""
+    if @category != ""
       @alibis = @alibis.where(category: params[:category])
     end
   end
 
   def show
-     @alibi = Alibi.find(params[:id])
-     @deal = Deal.new
+    @alibi = Alibi.find(params[:id])
+    # Retrieve query parameters and pass them again to the view to manage the back action
+    @category = params[:category]
+    @location = params[:location]
+    @deal = Deal.new
   end
 
   def new

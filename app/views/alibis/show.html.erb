@@ -1,22 +1,14 @@
 <p id="notice"></p>
   <div class="container">
-
-     <%= cl_image_tag @alibi.photo, height: 400, width: 400 %>
-
-
+    <%= cl_image_tag @alibi.photo, height: 400, width: 400 %>
     <h2><%= @alibi.title %></h2>
     <p><%= @alibi.description %></p>
     <p><strong>City: </strong><%= @alibi.location %></p>
-
-
-
     <p><strong>Category: </strong><%= @alibi.category %></p>
     <p><strong>Price: </strong><%= @alibi.price %>€</p>
     <div class="alibis">
-
     </div>
   </div>
-
 
 <%= simple_form_for [@alibi, @deal] do |d| %>
 
@@ -25,4 +17,5 @@
   <%= d.submit "Submit" %>
 <% end %>
 
-<%= link_to 'Alibis list', alibis_path %>
+<!--  Add category and location to the query parameters to manage the Back correctly -->
+<%= link_to 'Back', alibis_path(:category => @category, :location => @location) %>
