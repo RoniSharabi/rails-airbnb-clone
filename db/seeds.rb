@@ -44,7 +44,7 @@ alibi_attributes = [
   category: "Family",
   user: User.all.sample
 },
-{ title: "Fake grandma faking their death to get you out work",
+{ title: "Fake grandma faking their death to get you out of work",
   description: "You're overload with work and you really don't want to go to that meeting tomorrow? FEAR NOT, your grandma TATIANA will come to work to visit you and OH NO SHE JUST HAD A HEART ATTACK ON THE FLOOR. I guess the meeting will have to wait. BOOK TATIANA TODAY.",
   price: 240,
   location: "Marseille",
