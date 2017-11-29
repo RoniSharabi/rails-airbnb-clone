@@ -1,21 +1,45 @@
+
 <p id="notice"></p>
+
   <div class="container">
-    <%= cl_image_tag @alibi.photo, height: 400, width: 400 %>
-    <h2><%= @alibi.title %></h2>
-    <p><%= @alibi.description %></p>
-    <p><strong>City: </strong><%= @alibi.location %></p>
-    <p><strong>Category: </strong><%= @alibi.category %></p>
-    <p><strong>Price: </strong><%= @alibi.price %>€</p>
-    <div class="alibis">
+    <div class="row">
+        <div class="ty">
+            <%= cl_image_tag @alibi.photo, height: 300, width: 500, class:'brice'%>
+        </div>
+        <h2><%= @alibi.title %></h2>
+        <p><%= @alibi.description %></p>
+
+        <div class="row">
+          <div class="col-xs-6 titles">
+            <p><strong>City: </strong><%= @alibi.location %></p>
+            <p><strong>Category: </strong><%= @alibi.category %></p>
+            <p><strong>Price: </strong><%= @alibi.price %>€</p>
+          </div>
+          <div class="col-xs-6 space">
+            <div class="tt">
+              <p><strong>BOOK ME TODAY</strong></p>
+              <%= simple_form_for [@alibi, @deal] do |d| %>
+
+                <%= d.input :start_date %>
+                <%= d.input :end_date %>
+                <%= d.submit "Submit", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      <div class="hey">
+        <%= link_to 'Go Back to the list', alibis_path(:category => @category, :location => @location), class: 'btn btn-primary' %>
+      </div>
+
+
+
+          <!--  Add category and location to the query parameters to manage the Back correctly -->
+
+        </div>
+       </div>
     </div>
-  </div>
 
-<%= simple_form_for [@alibi, @deal] do |d| %>
 
-  <%= d.input :start_date %>
-  <%= d.input :end_date %>
-  <%= d.submit "Submit" %>
-<% end %>
 
-<!--  Add category and location to the query parameters to manage the Back correctly -->
-<%= link_to 'Back', alibis_path(:category => @category, :location => @location) %>
+   </div>
