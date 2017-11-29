@@ -19,7 +19,11 @@ class DealsController < ApplicationController
 
   def destroy
     @deal.destroy
-    redirect_to deals_path
+    if Deal.all.empty?
+      redirect_to root_path
+    else
+      redirect_to deals_path
+   end
   end
 
  private
