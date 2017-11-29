@@ -1,14 +1,18 @@
 class DealsController < ApplicationController
-  before_action :set_deal, only: [:create, :destroy]
+  before_action :set_deal, only: [:destroy]
 
   def index
     @deals = Deal.where(params[:user_id] = current_user)
   end
 
   def create
-    @deal = deal.new(deal_params)
+    @deal = Deal.new(deal_params)
+    @deal.user = current_user
+    @deal.alibi = Alibi.find(params[:alibi_id])
+    authorize @deal
     if @deal.save
-      redirect_to deal_path(@deal)
+      # redirect_to deal_path(@deal)
+      redirect_to root_path
     else
       render :new
     end
@@ -22,7 +26,7 @@ class DealsController < ApplicationController
  private
 
   def set_deal
-    @deal = deal.find(params[:id])
+    @deal = Deal.find(params[:id])
   end
 
   def deal_params
