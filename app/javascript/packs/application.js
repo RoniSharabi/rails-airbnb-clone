@@ -1,5 +1,7 @@
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-initUpdateNavbarOnScroll();
+import "../plugins/flatpickr"
 import { showTab } from '../components/tabs';
+
+initUpdateNavbarOnScroll();
 showTab();
