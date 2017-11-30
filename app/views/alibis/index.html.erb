@@ -13,7 +13,13 @@
         <div class="card-des">
           <h4><%= alibi.title %></h4>
           <p> <%= alibi.location%></p>
+          <div class="card-description"></div>
         </div>
+        <div class="card-des">
+          <h4><%= alibi.title %></h4>
+          <p> <%= alibi.location %></p>
+        </div>
+        <%= link_to "", alibi_path(alibi, :category => @category, :location => @location), :class => "card-link" %>
       </div>
     </div>
     <% end %>

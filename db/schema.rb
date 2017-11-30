@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20171130095246) do
     t.bigint "user_id"
     t.bigint "alibi_id"
     t.datetime "start_date"
-    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
+    t.text "discussion"
+    t.integer "duration"
     t.index ["alibi_id"], name: "index_deals_on_alibi_id"
     t.index ["user_id"], name: "index_deals_on_user_id"
   end

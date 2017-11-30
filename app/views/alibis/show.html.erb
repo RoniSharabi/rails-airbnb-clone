@@ -1,45 +1,63 @@
+ <p id="notice"></p>
 
-<p id="notice"></p>
-
-  <div class="container">
-    <div class="row">
-        <div class="ty">
-            <%= cl_image_tag @alibi.photo, height: 300, width: 500, :crop=>"fit", class:'brice'%>
-        </div>
-        <h2><%= @alibi.title %></h2>
-        <p><%= @alibi.description %></p>
-
+  <div class="container grid">
+    <div class="description">
+      <h2><%= @alibi.title %></h2>
+      <p><%= @alibi.description %></p>
+      <%= link_to 'Go Back to the list', alibis_path(:category => @category, :location => @location), class: 'btn btn-show' %>
+    </div>
+    <div class="photo text-center">
+        <%= cl_image_tag @alibi.photo, height: 300, width: 500, :crop=>"fit", class:'brice'%>
+    </div>
+    <div class="details">
+      <p><strong>City: </strong><%= @alibi.location %></p>
+      <p><strong>Category: </strong><%= @alibi.category %></p>
+      <p><strong>Price: </strong><span id="price-per-hour"> <%= @alibi.price %></span> €</p>
+    </div>
+    <div class="price-calculation">
+      <p><strong>BOOK ME TODAY</strong></p>
+      <%= simple_form_for [@alibi, @deal] do |d| %>
         <div class="row">
           <div class="col-xs-6">
-            <div class="titles">
-              <p><strong>City: </strong><%= @alibi.location %></p>
-              <p><strong>Category: </strong><%= @alibi.category %></p>
-              <p><strong>Price: </strong><%= @alibi.price %>€</p>
-            </div>
-            <div class="hey">
-              <%= link_to 'Go Back to the list', alibis_path(:category => @category, :location => @location), class: 'btn btn-primary' %>
-            </div>
+            <%= d.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
           </div>
-          <div class="col-xs-6 space">
-            <div class="tt">
-              <p><strong>BOOK ME TODAY</strong></p>
-              <%= simple_form_for [@alibi, @deal] do |d| %>
-
-                <%= d.input :start_date %>
-                <%= d.input :end_date %>
-                <%= d.submit "Book", class: "btn btn-primary" %>
-              <% end %>
-            </div>
+          <div class="col-xs-3">
+            <%= d.input :duration , input_html: {value: 1, min: 1} %>
           </div>
         </div>
-
           <!--  Add category and location to the query parameters to manage the Back correctly -->
 
         </div>
-        <div
-          id="map"
-          style="width: 100%;
-          height: 600px;"
-          data-markers="<%=@markers.to_json%>"
-        ></div>
-       </div>
+        <%= d.input :discussion %>
+        <div class="row">
+          <div class="col-xs-2">
+            <%#= d.label "Price" %>
+            <p>Price</p>
+          </div>
+          <div class="col-xs-2">
+            <p id="total-price"></p>
+          </div>
+        </div>
+        <%= d.submit "Booking Request", class: "btn btn-show" %>
+      <% end %>
+    </div>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%=@markers.to_json%>"
+    ></div>
+   </div>
+
+<% content_for :after_js do %>
+  <script>
+    const duration = document.getElementById('deal_duration');
+    duration.addEventListener('change', (event) => {
+      const durationValue = parseInt(event.currentTarget.value);
+      const pricePerHour = parseInt(document.getElementById('price-per-hour').innerHTML);
+      document.getElementById('total-price').innerHTML = `${durationValue * pricePerHour} €`;
+    });
+  </script>
+<% end %>
+
+>>>>>>> master

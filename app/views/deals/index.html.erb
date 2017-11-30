@@ -9,6 +9,7 @@
           <div class="card-description">
             <h2> <%= deal.alibi.title %></h2>
             <p> <%= deal.alibi.location %></p>
+            <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
           </div>
           <div class="card-action">
             <%= link_to deal_path(deal), method: :delete,
