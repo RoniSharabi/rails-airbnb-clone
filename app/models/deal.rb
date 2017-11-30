@@ -7,4 +7,24 @@ class Deal < ApplicationRecord
   def end_date
     start_date + duration.hours
   end
+
+  def refuse!
+    status = 2
+  end
+
+  def accept!
+    status = 1
+  end
+
+  def accepted?
+    status == 1
+  end
+
+  def refused?
+    status == 2
+  end
+
+  def pending?
+    status == 0
+  end
 end
