@@ -1,24 +1,70 @@
 <div class="container">
-  <div class="row">
-    <% @deals.each do | deal | %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path deal.alibi.photo %>')">
-          <div class="card-category">
-            <%= deal.alibi.category %>
-          </div>
-          <div class="card-description">
-            <h2> <%= deal.alibi.title %></h2>
-            <p> <%= deal.alibi.location %></p>
-            <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
-          </div>
-          <div class="card-action">
-            <%= link_to deal_path(deal), method: :delete,
-                      data: { confirm: "Are you sure?" } do  %>
-              <i class="fa fa-trash-o"></i>
-            <% end %>
-          </div>
+  <ul id="dashboard-tabs" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#my_deals" aria-controls="my_deals" role="tab" data-toggle="tab">My deals</a>
+    </li>
+    <li role="presentation">
+      <a href="#my_offers" aria-controls="my_offers" role="tab" data-toggle="tab">My Offers</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="my_deals">
+      <div class="container-fluid">
+        <div class="row">
+          <% @deals.each do | deal | %>
+            <div class="col-xs-12 col-sm-12">
+              <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://wallpapers.walldevil.com/wallpapers/a52/preview/880-brick-wall.jpg')">
+                <div class="card-category">
+                  <%= deal.alibi.category %>
+                </div>
+                <div class="card-description">
+                  <h2> <%= deal.alibi.title %></h2>
+                  <p> <%= deal.alibi.location %></p>
+                  <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
+                </div>
+                <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
+                  <a class="card-link" href="#" ></a>
+                <div class="card-action">
+                  <%= link_to deal_path(deal), method: :delete,
+                            data: { confirm: "Are you sure?" } do  %>
+                    <i class="fa fa-trash-o"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="my_offers">
+      <div class="container-fluid">
+        <div class="row">
+          <% @offers.each do | deal | %>
+            <div class="col-xs-12 col-sm-12">
+              <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://wallpapers.walldevil.com/wallpapers/a52/preview/880-brick-wall.jpg')">
+                <div class="card-category">
+                  <%= deal.alibi.category %>
+                </div>
+                <div class="card-description">
+                  <h2> <%= deal.alibi.title %></h2>
+                  <p> <%= deal.alibi.location %></p>
+                  <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
+                </div>
+                <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
+                  <a class="card-link" href="#" ></a>
+                <div class="card-action">
+                  <%= link_to deal_path(deal), method: :delete,
+                            data: { confirm: "Are you sure?" } do  %>
+                    <i class="fa fa-trash-o"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
