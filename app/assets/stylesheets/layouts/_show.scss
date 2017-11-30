@@ -1,6 +1,45 @@
-
-
 body {
   background-color: white;
+}
 
+.grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 50% 50%;
+  > div {
+    padding: 20px;
+  }
+}
+.description {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  border-right: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+}
+.photo {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+  border-bottom: 1px solid #f3f3f3;
+}
+.details {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 1;
+}
+.price-calculation {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+}
+.btn-show {
+  background-color: #F2AF58;
+  color: white;
+  padding: 10px 100px;
+  border-radius: 10px;
+  opacity: 0.9;
+  border-color: none;
+}
+.btn-show:hover {
+  opacity: 0.5;
+  background: light-gray;
+  text-decoration: none;
+  color: white;
 }
