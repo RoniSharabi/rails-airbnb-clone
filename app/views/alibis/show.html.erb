@@ -25,13 +25,9 @@
             <%= d.input :duration , input_html: {value: 1, min: 1} %>
           </div>
         </div>
-          <!--  Add category and location to the query parameters to manage the Back correctly -->
-
-        </div>
         <%= d.input :discussion %>
         <div class="row">
           <div class="col-xs-2">
-            <%#= d.label "Price" %>
             <p>Price</p>
           </div>
           <div class="col-xs-2">
@@ -41,23 +37,25 @@
         <%= d.submit "Booking Request", class: "btn btn-show" %>
       <% end %>
     </div>
-    <div
-      id="map"
-      style="width: 100%;
-      height: 600px;"
-      data-markers="<%=@markers.to_json%>"
-    ></div>
-   </div>
+  </div>
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%=@markers.to_json%>">
+  </div>
 
 <% content_for :after_js do %>
   <script>
     const duration = document.getElementById('deal_duration');
-    duration.addEventListener('change', (event) => {
+    const updatePrice = ((event) => {
       const durationValue = parseInt(event.currentTarget.value);
       const pricePerHour = parseInt(document.getElementById('price-per-hour').innerHTML);
+      console.log("durationValue = " + durationValue);
+      console.log("pricePerHour = " + pricePerHour);
       document.getElementById('total-price').innerHTML = `${durationValue * pricePerHour} €`;
     });
+    duration.addEventListener('change', updatePrice);
+    duration.addEventListener('DOMContentLoaded', updatePrice);
   </script>
 <% end %>
-
->>>>>>> master
