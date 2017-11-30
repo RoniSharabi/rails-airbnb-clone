@@ -9,11 +9,12 @@ class DealsController < ApplicationController
     @deal = Deal.new(deal_params)
     @deal.user = current_user
     @deal.alibi = Alibi.find(params[:alibi_id])
+    @alibi = @deal.alibi
     authorize @deal
     if @deal.save
       redirect_to deals_path
     else
-      render :new
+      render 'alibis/show'
     end
   end
 
@@ -34,6 +35,6 @@ class DealsController < ApplicationController
   end
 
   def deal_params
-    params.require(:deal).permit(:start_date, :end_date, :alibi_id, :user_id)
+    params.require(:deal).permit(:start_date, :alibi_id, :user_id, :duration, :discussion)
   end
 end
