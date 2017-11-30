@@ -23,7 +23,7 @@
                   <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
                 </div>
                 <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
-                  <a class="card-link" href="#" ></a>
+                  <!-- <a class="card-link" href="#" ></a> -->
                 <div class="card-action">
                   <%= link_to deal_path(deal), method: :delete,
                             data: { confirm: "Are you sure?" } do  %>
@@ -51,7 +51,7 @@
                   <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
                 </div>
                 <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
-                  <a class="card-link" href="#" ></a>
+                <!-- <a class="card-link" href="#" ></a> -->
                 <div class="card-action">
                   <%= link_to deal_path(deal), method: :delete,
                             data: { confirm: "Are you sure?" } do  %>
@@ -66,5 +66,3 @@
     </div>
   </div>
 </div>
-
-
