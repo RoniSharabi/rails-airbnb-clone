@@ -3,6 +3,7 @@ class DealsController < ApplicationController
 
   def index
     @deals = policy_scope(Deal).where(user: current_user)
+    @offers = policy_scope(Deal).where(alibi: current_user.alibis)
   end
 
   def create
