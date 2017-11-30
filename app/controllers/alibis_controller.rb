@@ -17,7 +17,7 @@ class AlibisController < ApplicationController
   end
 
   def show
-    @alibi = Alibi.find(params[:id])
+    # @alibi = Alibi.find(params[:id])
     # Retrieve query parameters and pass them again to the view to manage the back action
     @category = params[:category]
     @location = params[:location]
