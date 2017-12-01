@@ -4,7 +4,7 @@ class AlibisController < ApplicationController
   before_action :set_alibi, only: [:show, :edit, :update, :destroy]
 
   def index
-    @alibis = policy_scope(Alibi).where.not(latitude: nil, longitude: nil)
+    @alibis = policy_scope(Alibi)
     # Pass query parameters to the index view in order to retrieve those parameters in the show view
     @location = params[:location]
     @category = params[:category]
@@ -14,7 +14,7 @@ class AlibisController < ApplicationController
     if @category != ""
       @alibis = @alibis.where(category: params[:category])
     end
-     @markers = @alibis.map do |alibi|
+     @markers = @alibis.where.not(latitude: nil, longitude: nil).map do |alibi|
       {
         lat: alibi.latitude,
         lng: alibi.longitude#,
