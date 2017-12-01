@@ -27,7 +27,7 @@
                     <i class="fa fa-times"></i>
                   <% end %>
                   </h2>
-                  <p> <%= deal.alibi.location %></p>
+                  <p class="deallocation"> <%= deal.alibi.location %></p>
                   <p class="deallocation" > <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
                   <p class="dealprice" ><%= deal.alibi.price %>€</p>
                 </div>
@@ -69,7 +69,7 @@
                     <i class="fa fa-times"></i>
                   <% end %>
                   </h2>
-                  <p> <%= deal.alibi.location %></p>
+                  <p class="deallocation"> <%= deal.alibi.location %></p>
                   <p class="deallocation" > <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
                 </div>
                 <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
