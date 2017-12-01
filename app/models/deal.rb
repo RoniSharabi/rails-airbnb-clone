@@ -27,4 +27,12 @@ class Deal < ApplicationRecord
   def pending?
     status == 0
   end
+
+  def price
+    if alibi
+      alibi.price * duration
+    else
+      0
+    end
+  end
 end
