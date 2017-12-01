@@ -22,7 +22,7 @@
             <%= d.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
           </div>
           <div class="col-xs-3">
-            <%= d.input :duration , input_html: {value: 1, min: 1} %>
+            <%= d.input :duration , input_html: {min: 1} %>
           </div>
         </div>
         <%= d.input :discussion %>
@@ -48,14 +48,21 @@
 <% content_for :after_js do %>
   <script>
     const duration = document.getElementById('deal_duration');
+    const startDate = document.getElementById('deal_start_date');
+
     const updatePrice = ((event) => {
       const durationValue = parseInt(event.currentTarget.value);
       const pricePerHour = parseInt(document.getElementById('price-per-hour').innerHTML);
-      console.log("durationValue = " + durationValue);
-      console.log("pricePerHour = " + pricePerHour);
       document.getElementById('total-price').innerHTML = `${durationValue * pricePerHour} €`;
     });
-    duration.addEventListener('change', updatePrice);
+
+    const fillDuration= ((event) => {
+      if (duration.value === "") {
+        duration.value = 1;
+      }
+    });
+    duration.addEventListener('click', updatePrice);
     duration.addEventListener('DOMContentLoaded', updatePrice);
+    startDate.addEventListener('click', fillDuration);
   </script>
 <% end %>
