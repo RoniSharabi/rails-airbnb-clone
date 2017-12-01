@@ -14,11 +14,12 @@ class AlibisController < ApplicationController
     if @category != ""
       @alibis = @alibis.where(category: params[:category])
     end
-     @markers = @alibis.map do |alibi|
+    @markers = @alibis.map do |alibi|
+    @alibi_for_view = alibi
       {
         lat: alibi.latitude,
-        lng: alibi.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        lng: alibi.longitude,
+        infoWindow: { content: render_to_string(partial: "../views/shared/map_box", locals: { alibi: @alibi_for_view }) }
       }
     end
   end
@@ -33,7 +34,6 @@ class AlibisController < ApplicationController
     @markers = [{
         lat: @alibi.latitude,
         lng: @alibi.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }]
   end
 
