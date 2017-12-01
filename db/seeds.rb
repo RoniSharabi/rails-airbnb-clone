@@ -164,7 +164,9 @@ alibi_attributes.each_with_index do |alibi, index|
   alibi.save
 end
 
-Alibi.all do |alibi, index|
+Alibi.all.each_with_index do |alibi, index|
+  puts "Add location #{locations[index]} to #{alibi.title}"
   alibi.update(location: locations[index])
 end
+
 puts "Done"
