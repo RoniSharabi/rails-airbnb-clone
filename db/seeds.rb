@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "cleaning seeds..."
-#Alibi.destroy_all
-#User.destroy_all
+Alibi.destroy_all
+User.destroy_all
 
 tess = User.create(email: "tess@mail.com", password: '123456')
 xavier = User.create(email: "xavier@mail.com", password: '123456')
@@ -158,11 +158,11 @@ locations = [
 
 puts "associating images..."
 
-# alibi_attributes.each_with_index do |alibi, index|
-#   alibi = Alibi.new(alibi)
-#   alibi.photo = Rails.root.join("db/images/#{images_url[index]}").open
-#   alibi.save
-# end
+alibi_attributes.each_with_index do |alibi, index|
+  alibi = Alibi.new(alibi)
+  alibi.photo = Rails.root.join("db/images/#{images_url[index]}").open
+  alibi.save
+end
 
 Alibi.all do |alibi, index|
   alibi.update(location: locations[index])
