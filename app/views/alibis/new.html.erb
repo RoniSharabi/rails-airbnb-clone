@@ -10,8 +10,9 @@
           <%= f.input :description %>
           <%= f.input :price %>
           <%= f.input :location %>
-          <%= f.label :category  %>
-          <%= select_tag 'category', options_for_select(@alibis.collect{|alibi| alibi.category}.uniq), class: "select_category"%>
+          <%#= f.label :category  %>
+          <%= f.input :category, collection: @alibis.collect{|alibi| alibi.category}.uniq %>
+          <%#= select_tag 'category', options_for_select(@alibis.collect{|alibi| alibi.category}.uniq), :include_blank => 'All' %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.submit class: "btn-photo" %>
@@ -25,3 +26,4 @@
   </div>
 </div>
 
+<!-- collection_select(:post, :category_id, Category.all, :id, :name, {disabled: -> (category) { category.archived? }}) -->
