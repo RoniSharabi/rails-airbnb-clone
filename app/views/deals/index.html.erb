@@ -18,16 +18,29 @@
                   <%= deal.alibi.category %>
                 </div>
                 <div class="card-description">
-                  <h2> <%= deal.alibi.title %></h2>
+                  <h2> <%= deal.alibi.title %>
+                  <% if deal.pending? %>
+                    <i class="fa fa-clock-o"></i>
+                  <% elsif deal.accepted? %>
+                    <i class="fa fa-check-circle"></i>
+                  <% elsif deal.refused? %>
+                    <i class="fa fa-times"></i>
+                  <% end %>
+                  </h2>
                   <p> <%= deal.alibi.location %></p>
-                  <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
+                  <p> <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
                 </div>
                 <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
-                  <a class="card-link" href="#" ></a>
+                  <!-- <a class="card-link" href="#" ></a> -->
                 <div class="card-action">
-                  <%= link_to deal_path(deal), method: :delete,
-                            data: { confirm: "Are you sure?" } do  %>
-                    <i class="fa fa-trash-o"></i>
+                  <% if deal.pending? %>
+                    <%= link_to edit_alibi_deal_path(deal.alibi, deal) do  %>
+                      <i class="fa fa-pencil"></i>
+                    <% end %>
+                    <%= link_to deal_path(deal), method: :delete,
+                              data: { confirm: "Are you sure?" } do  %>
+                      <i class="fa fa-trash-o"></i>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -46,16 +59,28 @@
                   <%= deal.alibi.category %>
                 </div>
                 <div class="card-description">
-                  <h2> <%= deal.alibi.title %></h2>
+                  <h2> <%= deal.alibi.title %>
+                  <% if deal.pending? %>
+                    <i class="fa fa-clock-o"></i>
+                  <% elsif deal.accepted? %>
+                    <i class="fa fa-check-circle"></i>
+                  <% elsif deal.refused? %>
+                    <i class="fa fa-times"></i>
+                  <% end %>
+                  </h2>
                   <p> <%= deal.alibi.location %></p>
-                  <p> <%= deal.start_date.strftime('%b %d, %Y') %> - <%= deal.end_date.strftime('%b %d, %Y') %></p>
+                  <p> <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
                 </div>
                 <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
-                  <a class="card-link" href="#" ></a>
+                <!-- <a class="card-link" href="#" ></a> -->
                 <div class="card-action">
-                  <%= link_to deal_path(deal), method: :delete,
-                            data: { confirm: "Are you sure?" } do  %>
-                    <i class="fa fa-trash-o"></i>
+                  <% if deal.pending? %>
+                    <%= link_to alibi_deal_path(deal.alibi, deal, :deal => {:status => '1', :id => deal.id}), method: :patch do  %>
+                      <i class="fa fa-check"></i>
+                    <% end %>
+                    <%= link_to alibi_deal_path(deal.alibi, deal, :deal => {:status => '2', :id => deal.id}), method: :patch do  %>
+                      <i class="fa fa-times"></i>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -66,5 +91,3 @@
     </div>
   </div>
 </div>
-
-
