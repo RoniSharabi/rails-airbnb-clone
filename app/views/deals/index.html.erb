@@ -1,10 +1,10 @@
 <div class="container">
   <ul id="dashboard-tabs" class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-      <a href="#my_deals" aria-controls="my_deals" role="tab" data-toggle="tab">My deals</a>
+      <a href="#my_deals" aria-controls="my_deals" role="tab" data-toggle="tab" class="jenaimarre">My deals</a>
     </li>
     <li role="presentation">
-      <a href="#my_offers" aria-controls="my_offers" role="tab" data-toggle="tab">My Offers</a>
+      <a href="#my_offers" aria-controls="my_offers" role="tab" data-toggle="tab" class="jenaimarre">My Offers</a>
     </li>
   </ul>
   <div class="tab-content">
@@ -12,9 +12,9 @@
       <div class="container-fluid">
         <div class="row">
           <% @deals.each do | deal | %>
-            <div class="col-xs-12 col-sm-12">
-              <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://wallpapers.walldevil.com/wallpapers/a52/preview/880-brick-wall.jpg')">
-                <div class="card-category">
+            <div class="col-xs-12 col-sm-12 dealcard">
+              <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path deal.alibi.photo, height: 300, width: 500, crop: :thumb, gravity: :north %>')">
+                <div class="card-category dealcategory">
                   <%= deal.alibi.category %>
                 </div>
                 <div class="card-description">
@@ -28,8 +28,8 @@
                   <% end %>
                   </h2>
                   <p> <%= deal.alibi.location %></p>
-                  <p> <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
-                  <%= deal.alibi.price %>
+                  <p class="deallocation" > <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
+                  <p class="dealprice" ><%= deal.alibi.price %>€</p>
                 </div>
                 <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
                   <!-- <a class="card-link" href="#" ></a> -->
@@ -55,7 +55,7 @@
         <div class="row">
           <% @offers.each do | deal | %>
             <div class="col-xs-12 col-sm-12">
-              <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://wallpapers.walldevil.com/wallpapers/a52/preview/880-brick-wall.jpg')">
+              <div class="card" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path deal.alibi.photo, height: 300, width: 500, crop: :thumb, gravity: :north %>')">
                 <div class="card-category">
                   <%= deal.alibi.category %>
                 </div>
@@ -70,7 +70,7 @@
                   <% end %>
                   </h2>
                   <p> <%= deal.alibi.location %></p>
-                  <p> <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
+                  <p class="deallocation" > <%= deal.start_date.strftime('%b %d, %Y %H:%M') %> - <%= deal.end_date.strftime('%b %d, %Y %H:%M') %></p>
                 </div>
                 <!-- <img class="card-user" src="<%#= cl_image_path deal.alibi.user.photo %>"> -->
                 <!-- <a class="card-link" href="#" ></a> -->

@@ -83,8 +83,26 @@
 
 }
 
-.deal-card {
-  padding: 10px;
+.dealcard {
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.deallocation {
+  background-color: transparent !important;
+
+}
+
+.dealprice {
+  background-color: transparent !important;
+  padding-top: 75px;
+
+
+}
+
+.dealprice p {
+  font-size: 20px;
+
 }
 
 .card-design {
