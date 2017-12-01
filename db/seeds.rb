@@ -137,22 +137,22 @@ images_url = [
 ]
 
 locations = [
-  "Paris, France",
-  "Marseille, France",
-  "Lyon, France",
-  "Paris, France",
-  "Marseille, France",
-  "Lyon, France",
-  "Paris, France",
-  "Marseille, France",
-  "Lyon, France",
-  "Paris, France",
-  "Marseille, France",
-  "Lyon, France",
-  "Paris, France",
-  "Marseille, France",
-  "Lyon, France",
-  "Paris, France"
+  "16 Villa Gaudelet, Paris, France",
+  "85 Rue Lecourbe, Paris, France",
+  "3 Rue Erlanger, Paris, France",
+  "63 Boulevard Saint-Michel, Paris, France",
+  "117 Boulevard Jourdan, Paris, France",
+  "3 Rue Rebeval, Paris, France",
+  "109 Rue de Vaugirard, Paris, France",
+  "55 Rue de l'Ouest, Paris, France",
+  "3 Rue de la Chine, Paris, France",
+  "99 Boulevard Voltaire, Paris, France",
+  "3 Avenue du Maine, Paris, France",
+  "45 Rue de Dunkerque, Paris, France",
+  "23 Rue de Rivoli, Paris, France",
+  "36 Boulevard Haussmann, Paris, France",
+  "18 Avenue de l'Opéra, Paris, France",
+  "25 Place de la Madeleine, Paris, France"
 
 ]
 
